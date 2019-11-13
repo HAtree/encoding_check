@@ -1,4 +1,5 @@
 {
-    "filepath":"C:\\Users\\henry.apletree\\Documents\\Projects\\Python\\Plugins\\encoding_check\\bad.txt",
-    "encoding_type":"ascii"
+    "filepath":"C:\\Users\\henry.apletree\\Documents\\Projects\\Python\\Plugins\\encoding_check\\testing",
+    "encoding_type":"ascii",
+    "file_extension":".txt"
 }

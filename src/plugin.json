@@ -1,6 +1,6 @@
 {
   "name": "custom.python.encoding_check",
-  "version": "0.4",
+  "version": "0.5",
   "type": "python",
   "metricGroup": "host.custom",
   "entity": "HOST",
@@ -50,12 +50,17 @@
     {
       "key": "filepath",
       "type": "String",
-      "defaultValue": "/temp/example.txt"
+      "defaultValue": "/temp/"
     },
     {
       "key": "encoding_type",
       "type":"String",
       "displayHint": "ascii (=ANSI or ascii) or UTF-8-SIG (=UTF8 with BOM)"
+    },
+    {
+      "key": "file_extension",
+      "type":"String",
+      "displayHint": "The file extensions in the directory we want to check"
     }
   ]
 }
