@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "process_type": 29,
+      "group_name": "plugin_sdk.demo_app",
+      "processes": [
+        {
+          "process_name": "python3.5",
+          "properties": {
+            "CmdLine": "-m plugin_sdk.demo_app",
+            "WorkDir": "/home/demo",
+            "ListeningPorts": "8769"
+          }
+        }
+      ]
+    }
+  ]
+}

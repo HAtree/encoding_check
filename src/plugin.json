@@ -1,0 +1,61 @@
+{
+  "name": "custom.python.encoding_check",
+  "version": "0.4",
+  "type": "python",
+  "metricGroup": "host.custom",
+  "entity": "HOST",
+  "processTypeNames": [
+    "WINDOWS_SYSTEM"
+  ],
+  "source": {
+    "package": "encoding_check_plugin",
+    "className": "EncodingCheckPlugin",
+    "install_requires": [
+      "chardet>=3.0.4"
+    ],
+    "activation": "Singleton"
+  },
+  "metrics": [
+    {
+      "statetimeseries": {
+        "key": "matches_encoding",
+        "states":["correct_encoding", "incorrect_encoding"],
+        "displayname": "Matches Encoding"
+      }
+    }
+  ],
+  "configUI": {
+    "displayName": "File Encoding"
+  },
+  "ui" :
+  {
+    "keymetrics" : [ ],
+    "keycharts" : [ ],
+    "charts": [
+      {
+        "group": "File Encoding",
+        "title": "File Encoding State",
+        "series": [
+          {
+            "key": "matches_encoding",
+            "displayname": "State",
+            "statecolors": ["#00FF00", "#FF0000"],
+            "statechart": true
+          }
+        ]
+      }
+    ]
+  },
+  "properties": [
+    {
+      "key": "filepath",
+      "type": "String",
+      "defaultValue": "/temp/example.txt"
+    },
+    {
+      "key": "encoding_type",
+      "type":"String",
+      "displayHint": "ascii (=ANSI or ascii) or UTF-8-SIG (=UTF8 with BOM)"
+    }
+  ]
+}
