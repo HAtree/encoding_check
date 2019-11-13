@@ -1,0 +1,1 @@
+oneagent_sim.exe -r testing\properties.json -i 10  -n testing\simulator_snapshot.json -p src

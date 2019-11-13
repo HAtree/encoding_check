@@ -24,8 +24,8 @@ class EncodingCheckPlugin(BasePlugin):
             with open((path + "\\" + filename ), "rb") as f:
                 result = chardet.detect(f.read())["encoding"]
                 if result != desired_encoding:
-                    return "incorrect_encoding"
-        return "correct_encoding"
+                    return "incorrect_encoding", filename
+        return "correct_encoding", None
             
 
     def query(self, **kwargs):
@@ -37,11 +37,14 @@ class EncodingCheckPlugin(BasePlugin):
             file_extension = "." + file_extension
         # pgi = self.find_single_process_group(pgi_name('plugin_sdk.demo_app'))
         # pgi_id = pgi.group_instance_id#
-
+        
+        matches_encoding, failed_file = self.check_encoding(filepath, desired_encoding, file_extension)
         #return results
         self.results_builder.add_absolute_result(
-            PluginStateMetric(key="matches_encoding", value=self.check_encoding(filepath, desired_encoding, file_extension))
+            PluginStateMetric(key="matches_encoding", value=matches_encoding)
         )
+        if failed_file:
+            self.results_builder.report_error_event(description = "Encoding not Matched", title = "Encoding Not Matched", properties = {"filename":failed_file})
 
 
 
